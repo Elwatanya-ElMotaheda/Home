@@ -228,125 +228,83 @@ footer {
 footer p {
     margin: 0;
 }
-/* Mobile Devices - General adjustments for better readability and interaction */
-@media (max-width: 768px) {
-    /* Adjust body for mobile readability */
+
+/* Media Queries for consistency across devices */
+
+/* For screens smaller than or equal to 768px (typical tablet breakpoint) */
+@media screen and (max-width: 768px) {
+    .header-container, .product-detail, .slides_container, .details {
+        width: 100%;
+        max-width: 100%;
+    }
+
     body {
         font-size: 16px;
-        line-height: 1.6;
     }
 
-    /* Header adjustments for mobile */
-    header {
-        padding: 10px 0;
+    nav ul {
+        flex-direction: row;
+        gap: 10px;
     }
 
+    .slide img {
+        max-height: none;
+        height: auto;  /* Ensures the image scales properly on smaller screens */
+    }
+
+    #search-input:focus {
+        width: calc(100% - 50px);
+    }
+
+    .nav-buttons button, .add-to-cart, .search-bar button {
+        padding: 15px;
+    }
+}
+
+/* For very small screens, like mobile phones */
+@media screen and (max-width: 480px) {
     .header-container {
         flex-direction: column;
-        align-items: stretch;
     }
 
     .logo {
-        text-align: center;
         margin-bottom: 10px;
     }
 
     nav ul {
-        justify-content: center;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
-    nav ul li a {
-        padding: 5px 10px;
-        font-size: 14px;
-    }
-
-    /* Search bar */
-    .search-bar {
-        margin-top: 10px;
-        width: 100%;
-    }
-
-    #search-input {
-        width: 100%;
-        border-radius: 3px;
-    }
-
-    .search-bar button {
-        width: 100%;
-    }
-
-    /* Dropdown menu for mobile */
-    .dropdown:hover .dropdown-content {
-        display: none; /* Hide dropdown by default on mobile */
-    }
-
-    .dropdown.active .dropdown-content {
-        display: block;
-        position: static;
-        box-shadow: none;
-        width: 100%;
-    }
-
-    /* Hero section */
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .hero p {
-        font-size: 18px;
-    }
-
-    .hero button {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    /* Products section */
-    .product-list {
+    .product-detail {
         flex-direction: column;
     }
 
-    .product {
-        margin-bottom: 15px;
+    .image-gallery, .details {
+        max-width: 100%;
     }
 
-    .product img {
-        height: auto; /* Allow image to scale properly */
+    .slide img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;  /* Reduce max height for better fit on small screens */
     }
 
-    /* Footer */
-    footer {
-        font-size: 14px;
+    .details {
+        margin-top: 10px; /* Add space between the image and text */
+        text-align: center; /* Center align text on small screens */
     }
 
-    /* Utility classes for mobile */
-    .hide-on-mobile {
-        display: none;
+    .details h1 {
+        font-size: 24px; /* Slightly smaller font size on small screens */
     }
 
-    .show-on-mobile {
-        display: block;
+    .description, .price {
+        font-size: 14px; /* Adjust font size for better fit */
     }
 
-    /* Adjust padding and margins */
-    .products-overview, main {
-        padding: 15px;
-    }
-
-    .product-list .product {
-        width: 100%; /* Full width products for better touch interaction */
-    }
-}
-
-/* Small Mobile Devices */
-@media (max-width: 480px) {
-    /* Further adjustments for very small screens if needed */
-    .hero h1 {
-        font-size: 28px;
-    }
-
-    .products-overview h2 {
-        font-size: 24px;
+    .add-to-cart {
+        width: 100%;
+        font-size: 14px; /* Adjust button size for smaller screens */
     }
 }
