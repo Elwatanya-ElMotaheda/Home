@@ -6,12 +6,13 @@
     <title id="page-title">المنتجات - الوطنية المتحدة جروب</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="product-styles.css">
-    <script src="products.js" defer></script>
+    <link rel="stylesheet" href="responsive.css">
 </head>
 <body>
     <header>
         <div class="header-container">
             <div class="logo">الوطنية المتحدة جروب</div>
+            <span class="toggle-icon" onclick="openNav()">&#9776;</span>
             <nav>
                 <ul>
                     <li><a href="index.html">الرئيسية</a></li>
@@ -27,6 +28,14 @@
             </nav>
         </div>
     </header>
+
+    <!-- Sidenav (without close button) -->
+    <div id="mySidenav" class="sidenav">
+        <a href="index.html">الرئيسية</a>
+        <a href="products.html">المنتجات</a>
+        <a href="https://m.me/107394622435055">فيسبوك</a>
+        <a href="https://wa.me/201018067085">واتساب</a>
+    </div>
 
     <main>
         <section class="product-detail">
@@ -432,7 +441,24 @@ function prevSlide() {
     }
 }
 
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
 
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        // Close sidenav when clicking outside
+        document.addEventListener('click', function(event) {
+            var sidenav = document.getElementById("mySidenav");
+            var toggle = document.querySelector(".toggle-icon");
+
+            // If the click is outside the sidenav and not on the toggle button, close it
+            if (!sidenav.contains(event.target) && event.target !== toggle && sidenav.style.width === "250px") {
+                closeNav();
+            }
+        });
     </script>
 </body>
 </html>
